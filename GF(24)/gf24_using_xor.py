@@ -43,6 +43,7 @@ def mul_fx_gx(a,b):
         if a[3-i] == 1: #quy uoc [0] la x^3
             re = xor(re, tmp)
         tmp = mul_x_fx(tmp)
+        print("tmp = ", tmp)
     return re
     
 
