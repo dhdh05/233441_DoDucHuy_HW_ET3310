@@ -1,7 +1,7 @@
 #ham nhan fx voi gx
 def mul_fx_gx(a,b):
     #khoi tao mang c chua ket qua phep nhan f(x) va g(x)
-    c = [0] * 7 #c = len(a) + len(b) - 1 = 4 + 4 - 1 = 7
+    c = [0,0,0,0,0,0,0] #c = len(a) + len(b) - 1 = 4 + 4 - 1 = 7
     for i in range(len(a)):
         if a[i] == 1:
             for j in range(len(b)):
@@ -18,14 +18,14 @@ def mul_fx_gx(a,b):
 # gf(2^4) voi m(x) = x^4 + x + 1
 def mod_c(c):
     m = [1, 0, 0, 1, 1] #m[0] tuong ung voi x^4
-    thuong = [0] * 3 #bac cao nhat cua thuong la x^6/x^4 = x^2
+    thuong = [0, 0, 0] #bac cao nhat cua thuong x^6/x^4 = x^2
     
     for i in range(3):
         if c[i] == 1:
             thuong[i] = 1 #x^(6-i)/x^4 = x^(2-i)
             
-            
-            mul = [0] * 7
+             
+            mul = [0,0,0,0,0,0,0]
             for j in range(5): #duyet cac he so cua m(x)
                 mul[i+j] = m[j] #nhan m(x) voi x^(2-i)
             
