@@ -1,6 +1,7 @@
 #GF(2^8): mx = x^8 + x^4 + x^3 + x + 1
 #mx = 1 0 0 0 1 1 0 1 1 => x^8 = x^4 + x^3 + x + 1 => [00011011]
 
+xor_oper = [0,0,0,1,1,0,1,1]
 
 #hamxor
 def xor(x,y):
@@ -16,7 +17,7 @@ def xor(x,y):
 def mul_x_fx(tmp):
     tran = tmp[0]
     tmp = [tmp[1],tmp[2],tmp[3],tmp[4],tmp[5],tmp[6],tmp[7], 0] #khi x.fx thi fx dich trai 1
-    if tran == 1: tmp = xor(tmp, [0,0,0,1,1,0,1,1]) #xor de cho b ve GF(2^8)
+    if tran == 1: tmp = xor(tmp, xor_oper) #xor de cho b ve GF(2^8)
     return tmp
 
 
