@@ -1,7 +1,7 @@
 #Gf24: mx = x^4 + x + 1 
 #mx = 1 0 0 1 1 => x^4 = x + 1 => [0011]
 
-
+xor_oper = [0,0,1,1]
 #ham xor voi so nhi phan
 def xor(x,y):
     kq = [0,0,0,0]
@@ -16,7 +16,7 @@ def xor(x,y):
 def mul_x_fx(tmp):
     tran = tmp[0]
     tmp = [tmp[1],tmp[2], tmp[3], 0] #khi x.fx thi fx dich trai 1
-    if tran == 1: tmp = xor(tmp, [0,0,1,1]) #xor de cho b ve GF(2^4)
+    if tran == 1: tmp = xor(tmp, xor_oper) #xor de cho b ve GF(2^4)
     return tmp
 
 #ham nhan fx voi gx
