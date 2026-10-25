@@ -12,8 +12,6 @@ def xor(x,y):
             kq[i] = 1
     return kq
 
-
-
 #ham nhan x voi gx
 def mul_x_fx(tmp):
     tran = tmp[0]
@@ -22,7 +20,8 @@ def mul_x_fx(tmp):
     return tmp
 
 #ham nhan fx voi gx
-def mul_fx_gx(a,b):
+#Cach1:
+def mul_fx_gx_1(a,b):
     gx_1 = b
     x_gx = mul_x_fx(gx_1)
     x2_gx = mul_x_fx(x_gx)
@@ -35,6 +34,15 @@ def mul_fx_gx(a,b):
     if a[2] == 1: re = xor(re, x_gx) 
     if a[3] == 1: re = xor(re, gx_1)
     
+    return re
+#Cach2:
+def mul_fx_gx(a,b):
+    tmp = b
+    re = [0,0,0,0]
+    for i in range(len(a)):
+        if a[3-i] == 1: #quy uoc [0] la x^3
+            re = xor(re, tmp)
+        tmp = mul_x_fx(tmp)
     return re
     
 
