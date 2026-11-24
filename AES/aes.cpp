@@ -176,8 +176,6 @@ int main() {
         printf("ShiftRows   : "); 
         inState();
 
-        // TODO: neu loop khac 10 thi goi mixColumns_func() va in state
-
         addRoundKey(loop);
         printf("ARK         : "); 
         inState();
