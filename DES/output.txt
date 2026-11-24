@@ -1,0 +1,184 @@
+﻿DES
+K1 = 0 0 0 0 0 0 0 0 0 0 0 0 
+K2 = 0 0 0 0 0 0 0 0 0 0 0 0 
+K3 = 0 0 0 0 0 0 0 0 0 0 0 0 
+K4 = 0 0 0 0 0 0 0 0 0 0 0 0 
+K5 = 0 0 0 0 0 0 0 0 0 0 0 0 
+K6 = 0 0 0 0 0 0 0 0 0 0 0 0 
+K7 = 0 0 0 0 0 0 0 0 0 0 0 0 
+K8 = 0 0 0 0 0 0 0 0 0 0 0 0 
+K9 = 0 0 0 0 0 0 0 0 0 0 0 0 
+K10 = 0 0 0 0 0 0 0 0 0 0 0 0 
+K11 = 0 0 0 0 0 0 0 0 0 0 0 0 
+K12 = 0 0 0 0 0 0 0 0 0 0 0 0 
+K13 = 0 0 0 0 0 0 0 0 0 0 0 0 
+K14 = 0 0 0 0 0 0 0 0 0 0 0 0 
+K15 = 0 0 0 0 0 0 0 0 0 0 0 0 
+K16 = 0 0 0 0 0 0 0 0 0 0 0 0 
+Plaintext
+b0	b1	b2	b3	b4	b5	b6	b7	
+b8	b9	b10	b11	b12	b13	b14	b15	
+b16	b17	b18	b19	b20	b21	b22	b23	
+b24	b25	b26	b27	b28	b29	b30	b31	
+b32	b33	b34	b35	b36	b37	b38	b39	
+b40	b41	b42	b43	b44	b45	b46	b47	
+b48	b49	b50	b51	b52	b53	b54	b55	
+b56	b57	b58	b59	b60	b61	b62	b63	
+
+Sau IP:
+b57	b49	b41	b33	b25	b17	b9	b1	
+b59	b51	b43	b35	b27	b19	b11	b3	
+b61	b53	b45	b37	b29	b21	b13	b5	
+b63	b55	b47	b39	b31	b23	b15	b7	
+b56	b48	b40	b32	b24	b16	b8	b0	
+b58	b50	b42	b34	b26	b18	b10	b2	
+b60	b52	b44	b36	b28	b20	b12	b4	
+b62	b54	b46	b38	b30	b22	b14	b6	
+
+L0:
+b57	b49	b41	b33	b25	b17	b9	b1	
+b59	b51	b43	b35	b27	b19	b11	b3	
+b61	b53	b45	b37	b29	b21	b13	b5	
+b63	b55	b47	b39	b31	b23	b15	b7	
+
+R0:
+b56	b48	b40	b32	b24	b16	b8	b0	
+b58	b50	b42	b34	b26	b18	b10	b2	
+b60	b52	b44	b36	b28	b20	b12	b4	
+b62	b54	b46	b38	b30	b22	b14	b6	
+
+E (R0)
+b6	b56	b48	b40	b32	b24	
+b32	b24	b16	b8	b0	b58	
+b0	b58	b50	b42	b34	b26	
+b34	b26	b18	b10	b2	b60	
+b2	b60	b52	b44	b36	b28	
+b36	b28	b20	b12	b4	b62	
+b4	b62	b54	b46	b38	b30	
+b38	b30	b22	b14	b6	b56	
+
+IP^-1(IP(b)):
+b0	b1	b2	b3	b4	b5	b6	b7	
+b8	b9	b10	b11	b12	b13	b14	b15	
+b16	b17	b18	b19	b20	b21	b22	b23	
+b24	b25	b26	b27	b28	b29	b30	b31	
+b32	b33	b34	b35	b36	b37	b38	b39	
+b40	b41	b42	b43	b44	b45	b46	b47	
+b48	b49	b50	b51	b52	b53	b54	b55	
+b56	b57	b58	b59	b60	b61	b62	b63	
+
+IP_p: 0 0 c 0 0 0 c 0 0 0 0 0 0 0 0 0 
+loop 1:
+    E(R)    = 0 0 0 0 0 0 0 0 0 0 0 0 
+    E(R)^K  = 0 0 0 0 0 0 0 0 0 0 0 0 
+  S-box    = e f a 7 2 c 4 d 
+    P   = d 8 d 8 d b b c 
+    L1 = 0 0 0 0 0 0 0 0 
+    R1 = d 8 1 8 d b 7 c 
+loop 2:
+    E(R)    = 6 f 0 0 f 1 6 f 6 b f 9 
+    E(R)^K  = 6 f 0 0 f 1 6 f 6 b f 9 
+  S-box    = 5 5 7 9 9 a 7 3 
+    P   = b 7 3 3 c c 5 6 
+    L2 = d 8 1 8 d b 7 c 
+    R2 = b 7 3 3 c c 5 6 
+loop 3:
+    E(R)    = 5 a e 9 a 7 e 5 8 2 a d 
+    E(R)^K  = 5 a e 9 a 7 e 5 8 2 a d 
+  S-box    = c 1 9 6 a e 0 8 
+    P   = 1 d e 0 d 1 8 8 
+    L3 = b 7 3 3 c c 5 6 
+    R3 = c 5 f 8 0 a f 4 
+loop 4:
+    E(R)    = 6 0 b f f 0 0 5 5 7 a 9 
+    E(R)^K  = 6 0 b f f 0 0 5 5 7 a 9 
+  S-box    = 5 2 c f e d 1 4 
+    P   = d 3 4 5 b 1 e a 
+    L4 = c 5 f 8 0 a f 4 
+    R4 = 6 4 7 6 7 d b c 
+loop 5:
+    E(R)    = 3 0 8 3 a c 3 f b d f 8 
+    E(R)^K  = 3 0 8 3 a c 3 f b d f 8 
+  S-box    = b 6 5 7 1 0 f f 
+    P   = e e d 3 1 e 3 3 
+    L5 = 6 4 7 6 7 d b c 
+    R5 = 2 b 2 b 1 4 c 7 
+loop 6:
+    E(R)    = 9 5 6 9 5 6 8 a 9 6 0 e 
+    E(R)^K  = 9 5 6 9 5 6 8 a 9 6 0 e 
+  S-box    = 8 d d 5 2 9 5 1 
+    P   = 9 6 9 9 7 9 9 0 
+    L6 = 2 b 2 b 1 4 c 7 
+    R6 = f 2 e f 0 4 2 c 
+loop 7:
+    E(R)    = 7 a 5 7 5 e 8 0 8 1 5 9 
+    E(R)^K  = 7 a 5 7 5 e 8 0 8 1 5 9 
+  S-box    = 7 a f f 4 9 b 0 
+    P   = d 6 4 d b 7 4 7 
+    L7 = f 2 e f 0 4 2 c 
+    R7 = f d 6 6 a 3 8 0 
+loop 8:
+    E(R)    = 7 f a b 0 d 5 0 7 c 0 1 
+    E(R)^K  = 7 f a b 0 d 5 0 7 c 0 1 
+  S-box    = 8 3 3 0 3 2 a 1 
+    P   = 6 4 a 0 4 c 8 5 
+    L8 = f d 6 6 a 3 8 0 
+    R8 = 9 6 4 f 4 8 a 9 
+loop 9:
+    E(R)    = c a c 2 5 e a 5 1 5 5 3 
+    E(R)^K  = c a c 2 5 e a 5 1 5 5 3 
+  S-box    = c d 3 f 1 6 5 5 
+    P   = a 6 f 8 d 8 7 c 
+    L9 = 9 6 4 f 4 8 a 9 
+    R9 = 5 b 9 e 7 b f c 
+loop 10:
+    E(R)    = 2 f 7 c f c 3 f 7 f f 8 
+    E(R)^K  = 2 f 7 c f c 3 f 7 f f 8 
+  S-box    = 2 c f 8 1 7 c f 
+    P   = 2 c 3 b 2 b 7 d 
+    L10 = 5 b 9 e 7 b f c 
+    R10 = b a 7 4 6 3 d 4 
+loop 11:
+    E(R)    = 5 f 4 3 a 8 3 0 7 e a 9 
+    E(R)^K  = 5 f 4 3 a 8 3 0 7 e a 9 
+  S-box    = b c 5 c b 2 5 4 
+    P   = 2 7 b 9 1 2 f 2 
+    L11 = b a 7 4 6 3 d 4 
+    R11 = 7 c 2 7 6 9 0 e 
+loop 12:
+    E(R)    = 3 f 8 1 0 e b 5 2 8 5 c 
+    E(R)^K  = 3 f 8 1 0 e b 5 2 8 5 c 
+  S-box    = 1 9 9 a 2 d 6 c 
+    P   = 1 c 5 8 6 5 e a 
+    L12 = 7 c 2 7 6 9 0 e 
+    R12 = a 6 2 c 0 6 3 e 
+loop 13:
+    E(R)    = 5 0 c 1 5 8 0 0 c 1 f d 
+    E(R)^K  = 5 0 c 1 5 8 0 0 c 1 f d 
+  S-box    = 6 3 0 b 2 6 7 6 
+    P   = c 2 7 2 c 6 e 8 
+    L13 = a 6 2 c 0 6 3 e 
+    R13 = b e 5 5 a f e 6 
+loop 14:
+    E(R)    = 5 f c 2 a b d 5 f f 0 d 
+    E(R)^K  = 5 f c 2 a b d 5 f f 0 d 
+  S-box    = b 2 3 1 0 8 9 7 
+    P   = d 6 8 2 0 a 2 7 
+    L14 = b e 5 5 a f e 6 
+    R14 = 7 0 a e 0 c 1 9 
+loop 15:
+    E(R)    = b a 1 5 5 c 0 5 8 0 f 2 
+    E(R)^K  = b a 1 5 5 c 0 5 8 0 f 2 
+  S-box    = b d 5 4 e e 0 6 
+    P   = 1 5 a f 5 2 b a 
+    L15 = 7 0 a e 0 c 1 9 
+    R15 = a b f a f d 5 c 
+loop 16:
+    E(R)    = 5 5 7 f f 5 7 f a a f 9 
+    E(R)^K  = 5 5 7 f f 5 7 f a a f 9 
+  S-box    = c a c 5 6 d 4 3 
+    P   = d 0 9 f b 9 8 8 
+    L16 = a b f a f d 5 c 
+    R16 = a 0 3 1 b 5 9 1 
+R16L16 = a 0 3 1 b 5 9 1 a b f a f d 5 c 
+Ban ma C = 9 d a 0 0 e a a 3 f f c 2 a e d 
