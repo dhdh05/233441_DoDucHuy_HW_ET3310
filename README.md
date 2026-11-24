@@ -11,3 +11,4 @@ Branch main khong chua code, chi chua file README
 |Week|Requirement|Branch|
 |-----|---------------|-----|
 |Week 8|Thuat toan nhan da thuc trong GF(2**4) va GF(2**8)|week8|
+|Week 11|Cai dat thuat toan ma hoa AES va DES (C++)|week11|
